@@ -1,23 +1,54 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <Header id="header"></Header>
+    <main id="main">
+      <router-view/>
+    </main>
+    <Footer id="footer"></Footer>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  import Header from '@/components/Header'
+  import Footer from '@/components/Footer'
+
+  export default {
+    name: 'App',
+    components: {
+      Header,
+      Footer
+    }
+  }
 </script>
 
-<style>
+<style lang="less">
+
+@import './assets/common.less';
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display:flex;
+  flex-direction:column;
+
+    #header{
+      width:100%;
+      padding:0 20px;
+    }
+
+    #main{
+      flex:1;
+      padding:0 12%;
+      border:1px solid blue;
+    }
+
+    #footer{
+      width:100%;
+    }
+}
+@media(max-width:768px){
+  #app{
+    #main{
+      padding:0 10px;
+    }
+  }
 }
 </style>
