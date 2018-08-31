@@ -14,6 +14,7 @@
 <style lang="less">
 footer{
   text-align:center;
+  background:#DADADA;
   padding:20px;
   color:#777;
 }

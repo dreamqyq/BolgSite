@@ -7,6 +7,7 @@ import Edit from '@/pages/Edit/template.vue'
 import My from '@/pages/My/template.vue'
 import Create from '@/pages/Create/template.vue'
 import Details from '@/pages/Details/template.vue'
+import User from '@/pages/User/template.vue'
 
 Vue.use(Router)
 
@@ -39,7 +40,10 @@ export default new Router({
     {
       path: '/create',
       component: Create
+    },
+    {
+      path: '/user',
+      component: User
     }
-
   ]
 })

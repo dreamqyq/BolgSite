@@ -38,7 +38,6 @@
       flex:1;
       padding-left:12%;
       padding-right:12%;
-      border:1px solid blue;
     }
     #footer{
       width:100%;
