@@ -31,15 +31,15 @@
 
     #header{
       width:100%;
-      padding:0 20px;
+      padding-left:20px;
+      padding-right:20px;
     }
-
     #main{
       flex:1;
-      padding:0 12%;
+      padding-left:12%;
+      padding-right:12%;
       border:1px solid blue;
     }
-
     #footer{
       width:100%;
     }
@@ -47,7 +47,8 @@
 @media(max-width:768px){
   #app{
     #main{
-      padding:0 10px;
+      padding-left:10px;
+      padding-right:10px;
     }
   }
 }

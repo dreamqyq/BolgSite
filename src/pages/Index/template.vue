@@ -1,7 +1,48 @@
 <template>
   <div id="index">
     <p>首页</p>
-    <el-button type="primary" @click="click2">主要按钮</el-button>
+    <ul>
+      <li>list1</li>
+      <li>list2</li>
+      <li>list3</li>
+      <li>list4</li>
+      <li>list5</li>
+      <li>list6</li>
+      <li>list7</li>
+      <li>list8</li>
+      <li>list9</li>
+      <li>list10</li>
+      <li>list11</li>
+      <li>list12</li>
+      <li>list13</li>
+      <li>list14</li>
+      <li>list15</li>
+      <li>list16</li>
+      <li>list17</li>
+      <li>list18</li>
+      <li>list19</li>
+      <li>list20</li>
+      <li>list1</li>
+      <li>list2</li>
+      <li>list3</li>
+      <li>list4</li>
+      <li>list5</li>
+      <li>list6</li>
+      <li>list7</li>
+      <li>list8</li>
+      <li>list9</li>
+      <li>list10</li>
+      <li>list11</li>
+      <li>list12</li>
+      <li>list13</li>
+      <li>list14</li>
+      <li>list15</li>
+      <li>list16</li>
+      <li>list17</li>
+      <li>list18</li>
+      <li>list19</li>
+      <li>list20</li>
+    </ul>
   </div>
 </template>
 
