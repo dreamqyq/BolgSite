@@ -29,7 +29,6 @@
   import { mapGetters, mapActions } from 'vuex'
 
   import auth from '@/api/auth'
-  window.auth = auth
 
   export default {
     data(){

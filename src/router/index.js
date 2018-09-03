@@ -8,10 +8,11 @@ import My from '@/pages/My/template.vue'
 import Create from '@/pages/Create/template.vue'
 import Details from '@/pages/Details/template.vue'
 import User from '@/pages/User/template.vue'
+import store from '../store'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -27,23 +28,47 @@ export default new Router({
     },
     {
       path: '/my',
-      component: My
+      component: My,
+      meta: { requiresAuth: true }
     },
     {
-      path: '/edit',
-      component: Edit
+      path: '/edit/:blogId',
+      component: Edit,
+      meta: { requiresAuth: true }
+
     },
     {
-      path: '/details',
+      path: '/details/:blogId',
       component: Details
     },
     {
       path: '/create',
-      component: Create
+      component: Create,
+      meta: { requiresAuth: true }
+
     },
     {
-      path: '/user',
+      path: '/user/:userId',
       component: User
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    store.dispatch('checkLogin').then(isLogin=>{
+      if (!store.getters.isLogin) {
+        next({
+          path: '/login',
+          query: { redirect: to.fullPath }
+        })
+      } else {
+        next()
+      }
+    })
+  } else {
+    next() 
+  }
+})
+
+export default router

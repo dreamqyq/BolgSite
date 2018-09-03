@@ -17,7 +17,7 @@ export default {
         this.error2 = ''
         this.login({ username: this.username, password: this.password })
           .then(()=>{
-            this.$router.push({path: '/'})
+            this.$router.push({path: this.$route.query.redirect || '/'})
           },(response)=>{
             this.error1 = response.msg
           })
