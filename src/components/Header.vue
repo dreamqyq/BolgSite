@@ -75,6 +75,9 @@ header.common{
   }
   .btns{
     margin:20px;
+    button{
+      margin:0 10px;
+    }
   }
 }
 header.sticky{
