@@ -19,7 +19,13 @@ export default {
           .then(()=>{
             this.$router.push({path: this.$route.query.redirect || '/'})
           },(response)=>{
-            this.error1 = response.msg
+            if (response.msg === '密码不正确') {
+              this.error1 = ''
+              this.error2 = response.msg
+            } else {
+              this.error1 = response.msg
+              this.error2 = ''
+            }
           })
       }else {
         this.error2 = '密码长度6到16个字符'
