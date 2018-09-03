@@ -19,7 +19,7 @@ export default {
     return this.getBlogsList({ userId, page, atIndex })
   },
   getBlogDetail ({ blogId }) {
-    return request(URL.GET_DETAILS.replace(':blogId', blogId))
+    return request(URL.GET_DETAIL.replace(':blogId', blogId))
   },
   createBlog ({ title = '', content = '', description = '', atIndex = false } = { title: '', content: '', description: '', atIndex: false}) {
     return request(URL.CREATE, 'POST', { title, content, description, atIndex })
