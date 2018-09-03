@@ -13,10 +13,12 @@
       </div>
     </template>
     <template v-if=isLogin>
-      <h1>博客小站</h1>
+      <h1><router-link to="/">博客小站</router-link></h1>
       <p>Let's Share !</p>
       <div class="btns">
-        <i class="edit el-icon-edit"></i>
+        <router-link to="/create">
+          <i class="edit el-icon-plus" :title="message"></i>
+        </router-link>
         <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username"> 
         <el-button round @click="onLogout">退出登录</el-button>
       </div>
@@ -32,7 +34,9 @@
 
   export default {
     data(){
-      return {}
+      return {
+        message: '创建博客'
+      }
     },
     computed: {
       ...mapGetters([
@@ -105,6 +109,11 @@ header.sticky{
     }
     button{
       margin:0 10px;
+    }
+    .edit{
+      transform:scale(2);
+      cursor:pointer;
+      margin-right:20px;
     }
   }
 }
