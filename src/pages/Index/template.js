@@ -1,29 +1,29 @@
-import request from '@/helpers/request.js'
-import auth from '@/api/auth.js'
 import blog from '@/api/blog.js'
 
 export default {
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      blogs: [],
+      total:0,
+      page:1,
     }
   },
+  created() {
+    this.page = parseInt(this.$route.query.page) || 1
+    blog.getBlogsAtIndex({ page: this.page }).then( response => {
+      this.blogs = response.data
+      this.total = response.total
+      this.page = response.page
+    })
+  },
+
   methods:{
-    click1() {
-      this.$message({
-        message:'恭喜你点开了按钮',
-        type:'success'
-      });
-    },
-    click2(){
-      this.$alert('你确定要点开吗', '警告', {
-        confirmButtonText: '你确定要点开吗',
-        callback: action => {
-          this.$message({
-            message:'恭喜你点开了按钮',
-            type:'success'
-          })
-        }
+    onPageChange(page) {
+      blog.getBlogsAtIndex({ page }).then( response => {
+        this.blogs = response.data
+        this.total = response.total
+        this.page = response.page
+        this.$router.push({ path: '/', query: {page}})
       })
     }
   }

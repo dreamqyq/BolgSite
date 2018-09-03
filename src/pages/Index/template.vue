@@ -1,48 +1,24 @@
 <template>
   <div id="index">
-    <p>首页</p>
-    <ul>
-      <li>list1</li>
-      <li>list2</li>
-      <li>list3</li>
-      <li>list4</li>
-      <li>list5</li>
-      <li>list6</li>
-      <li>list7</li>
-      <li>list8</li>
-      <li>list9</li>
-      <li>list10</li>
-      <li>list11</li>
-      <li>list12</li>
-      <li>list13</li>
-      <li>list14</li>
-      <li>list15</li>
-      <li>list16</li>
-      <li>list17</li>
-      <li>list18</li>
-      <li>list19</li>
-      <li>list20</li>
-      <li>list1</li>
-      <li>list2</li>
-      <li>list3</li>
-      <li>list4</li>
-      <li>list5</li>
-      <li>list6</li>
-      <li>list7</li>
-      <li>list8</li>
-      <li>list9</li>
-      <li>list10</li>
-      <li>list11</li>
-      <li>list12</li>
-      <li>list13</li>
-      <li>list14</li>
-      <li>list15</li>
-      <li>list16</li>
-      <li>list17</li>
-      <li>list18</li>
-      <li>list19</li>
-      <li>list20</li>
-    </ul>
+    <section class="blog-posts">
+      <router-link class="item" v-for="blog in blogs" :to="`/details/${blog.id}`">
+        <figure class="avatar">
+          <img :src="blog.user.avatar" :alt="blog.user.username">
+          <figcaption>{{ blog.user.username }}</figcaption>
+        </figure>
+        <h3>{{ blog.title }} <span>{{ blog.createdAt }}</span></h3>
+        <p>{{ blog.description }}</p>
+      </router-link>
+    </section>
+    <section>
+      <el-pagination
+        background
+        layout="prev, pager, next"
+        @current-change="onPageChange"
+        :current-page.sync="page"
+        :total="total">
+      </el-pagination>
+    </section>
   </div>
 </template>
 
