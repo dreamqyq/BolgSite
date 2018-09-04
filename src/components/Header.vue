@@ -1,7 +1,7 @@
 <template>
   <header :class="[isLogin?'sticky':'common']">
     <template v-if=!isLogin>
-      <h1>博客小站</h1>
+      <h1><router-link to="/">博客小站</router-link></h1>
       <p>Let's Share !</p>
       <div class="btns">
         <router-link to="/login">
@@ -19,7 +19,9 @@
         <router-link to="/create">
           <i class="edit el-icon-plus" :title="message"></i>
         </router-link>
-        <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username"> 
+        <router-link to="/my">
+          <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username"> 
+        </router-link>
         <el-button round @click="onLogout">退出登录</el-button>
       </div>
     </template>
@@ -27,7 +29,7 @@
 </template>
 
 <script>
-  
+
   import { mapGetters, mapActions } from 'vuex'
 
   import auth from '@/api/auth'
@@ -53,9 +55,9 @@
         'logout'
       ]),
 
-      onLogout() {
-        this.logout()
-      },
+        onLogout() {
+          this.logout()
+        },
     }
   }
 </script>
@@ -67,54 +69,54 @@ header{
   background:@themeColor;
   color:#fff;
 }
-header.common{
-  text-align:center;
-  h1{
-    margin:20px;
+  header.common{
+    text-align:center;
+      h1{
+        margin:20px;
+      }
+      p{
+        margin:10px;
+        font-size:18px;
+      }
+      .btns{
+        margin:20px;
+          button{
+            margin:0 10px;
+          }
+      }
   }
-  p{
-    margin:10px;
-    font-size:18px;
-  }
-  .btns{
-    margin:20px;
-    button{
-      margin:0 10px;
-    }
-  }
-}
-header.sticky{
-  min-height:76px;
-  display:flex;
-  align-items:center;
-  padding:10px;
-  background:@themeColor;
-  h1{
-    align-self:center;
-  }
-  p{
-    align-self:center;
-    font-size:30px;
-    font-weight:bold;
+  header.sticky{
+    min-height:76px;
     display:flex;
-    flex:1;
-    justify-content:center;
+    align-items:center;
+    padding:10px;
+    background:@themeColor;
+      h1{
+        align-self:center;
+      }
+      p{
+        align-self:center;
+        font-size:30px;
+        font-weight:bold;
+        display:flex;
+        flex:1;
+        justify-content:center;
+      }
+      .btns{
+        margin-right:20px;
+          .avatar{
+            width:40px;
+            vertical-align:top;
+            margin:0 10px;
+          }
+          button{
+            margin:0 10px;
+          }
+          .edit{
+            transform:scale(2);
+            cursor:pointer;
+            margin-right:20px;
+          }
+      }
   }
-  .btns{
-    margin-right:20px;
-    .avatar{
-      width:40px;
-      vertical-align:top;
-      margin:0 10px;
-    }
-    button{
-      margin:0 10px;
-    }
-    .edit{
-      transform:scale(2);
-      cursor:pointer;
-      margin-right:20px;
-    }
-  }
-}
 </style>

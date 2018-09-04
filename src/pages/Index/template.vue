@@ -10,7 +10,7 @@
         <p>{{ blog.description }}</p>
       </router-link>
     </section>
-    <section>
+    <section class="pagination">
       <el-pagination
         background
         layout="prev, pager, next"
