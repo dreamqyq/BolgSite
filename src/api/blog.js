@@ -15,7 +15,7 @@ export default {
   getBlogsAtIndex ({ page = 1 } = { page: 1 }) {
     return this.getBlogsList({ page, atIndex: true })
   },
-  getBlogsByUserId (userId, { page = 1, atIndex = true } = { page: 1 }) {
+  getBlogsByUserId (userId, { page = 1, atIndex } = { page: 1 }) {
     return this.getBlogsList({ userId, page, atIndex })
   },
   getBlogDetail ({ blogId }) {

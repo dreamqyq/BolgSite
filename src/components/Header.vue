@@ -55,9 +55,9 @@
         'logout'
       ]),
 
-        onLogout() {
-          this.logout()
-        },
+      onLogout() {
+        this.logout()
+      },
     }
   }
 </script>
