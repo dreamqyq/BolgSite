@@ -14,7 +14,7 @@
         <h3>{{ blog.title }}</h3>
         <p>{{ blog.description }}</p>
         <el-button-group>
-          <router-link :to="`/edit/${blog.blogId}`">
+          <router-link :to="`/edit/${blog.id}`">
             <el-button type="primary" icon="el-icon-edit"></el-button>
           </router-link>
           <el-button type="primary" icon="el-icon-delete" @click.prevent="onDelete(blog.id)"></el-button>
