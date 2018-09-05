@@ -68,6 +68,10 @@ header{
   transition:all .3s;
   background:@themeColor;
   color:#fff;
+
+  .avatar{
+    border-radius: 50%;
+  }
 }
   header.common{
     text-align:center;

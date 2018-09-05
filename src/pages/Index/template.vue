@@ -1,14 +1,20 @@
 <template>
   <div id="index">
     <section class="blog-posts">
-      <router-link class="item" v-for="blog in blogs" :to="`/details/${blog.id}`">
-        <figure class="avatar">
-          <img :src="blog.user.avatar" :alt="blog.user.username">
-          <figcaption>{{ blog.user.username }}</figcaption>
-        </figure>
-        <h3>{{ blog.title }} <span>{{ friendlyDate(blog.createdAt) }}</span></h3>
-        <p>{{ blog.description }}</p>
-      </router-link>
+      <ul>
+        <li class="item" v-for="blog in blogs" :key="blog.id">
+          <router-link :to="`/user/${blog.user.id}`">
+            <figure class="avatar">
+              <img :src="blog.user.avatar" :alt="blog.user.username">
+              <figcaption>{{ blog.user.username }}</figcaption>
+            </figure>
+          </router-link>
+          <router-link class="blog-link" :to="`/details/${blog.id}`">
+            <h3>{{ blog.title }} <span>{{ friendlyDate(blog.createdAt) }}</span></h3>
+            <p>{{ blog.description }}</p>
+          </router-link>
+        </li>
+      </ul>
     </section>
     <section class="pagination">
       <el-pagination
