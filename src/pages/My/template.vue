@@ -23,9 +23,9 @@
           </router-link>
           <div class="btns">
             <router-link :to="`/edit/${blog.id}`">
-              <el-button type="primary" icon="el-icon-edit"></el-button>
+              <el-button type="primary" icon="el-icon-edit" :title="`编辑本篇博客`"></el-button>
             </router-link>
-            <el-button type="primary" icon="el-icon-delete" @click.prevent="onDelete(blog.id)"></el-button>
+            <el-button type="primary" icon="el-icon-delete" :title="'删除本篇博客'" @click.prevent="onDelete(blog.id)"></el-button>
           </div>
         </li>
       </ul>

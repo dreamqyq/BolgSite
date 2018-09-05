@@ -3,19 +3,23 @@ import blog from '@/api/blog'
 export default {
   data () {
     return {
-      title:'',
+      title: '',
       description: '',
       content: '',
-      atIndex: false
+      atIndex: false,
+      limit: 0
     }
   },
   methods: {
-    onCreate() {
-      blog.createBlog({ title:this.title, description: this.description, content: this.content, atIndex: this.atIndex })
-        .then(response=>{
+    onCreate () {
+      blog.createBlog({ title: this.title, description: this.description, content: this.content, atIndex: this.atIndex })
+        .then(response => {
           this.$message.success(response.msg)
           this.$router.push({ path: `/details/${response.data.id}` })
         })
+    },
+    limitNumber (num, selector) {
+      this.limit = num - this[selector].length
     }
   }
 }

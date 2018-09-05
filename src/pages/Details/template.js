@@ -11,7 +11,7 @@ export default {
     }
   },
 
-  created() {
+  created () {
     this.blogId = this.$route.params.blogId
     blog.getBlogDetail({ blogId: this.blogId }).then(response => {
       this.title = response.data.title
@@ -21,8 +21,8 @@ export default {
     })
   },
 
-  computed:{
-    markdown() {
+  computed: {
+    markdown () {
       return marked(this.originContent)
     }
   }
