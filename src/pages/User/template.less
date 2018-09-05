@@ -1,3 +1,70 @@
 #user{
-  color:blue;
+  section.user-info{
+    display: flex;
+    padding:15px 15px 30px;
+    margin: 10px 0;
+    border-bottom:1px solid #bbb;
+
+    .user-detail{
+      margin-left: 30px;
+      line-height: 30px;
+      h3{
+      }
+    }
+  }
+
+  section.blogs-list{
+    margin: 20px 0;
+
+    .item{
+      margin: 30px 0;
+      padding:10px;
+      border-bottom: 1px solid #ddd;
+
+      a{
+        display: flex;
+      }
+
+      .date{
+        margin-right: 30px;
+
+        span{
+          display: block;
+          text-align: center;
+        }
+        span.day{
+          font-size: 35px;
+          color: #999;
+          position: relative;
+        }
+        span.day::after{
+          content: '';
+          position: absolute;
+          top: 90%;
+          left: 0;
+          height: 1px;
+          width: 100%;
+          background: #aaa;
+        }
+        span.month, span.year{
+          font-size: 14px;
+          color: #aaa;          
+        }
+      }
+
+      h3{
+        margin-top:15px;
+      }
+      p{
+        margin-top: 20px;
+      }
+    }
+
+  }
+
+  section.pagination{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+  }
 }
