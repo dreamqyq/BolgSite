@@ -8,7 +8,7 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      component: () => import('@/pages/Index/template.vue'),
+      component: () => import('@/pages/Index/template.vue')
     },
     {
       path: '/login',

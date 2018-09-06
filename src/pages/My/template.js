@@ -25,7 +25,7 @@ export default {
   },
 
   methods: {
-    splitDate(date) {
+    splitDate (date) {
       let dateObj = typeof date === 'object' ? date : new Date(date)
       return {
         date: dateObj.getDate(),
@@ -33,22 +33,22 @@ export default {
         year: dateObj.getFullYear()
       }
     },
-    async onDelete(blogId) {
+    async onDelete (blogId) {
       await this.$confirm('此操作将永久删除该博客, 是否继续?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        })
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      })
       await blog.deleteBlog({ blogId })
       this.$message.success('删除成功！')
       this.blogs = this.blogs.filter(blog => blog.id !== blogId)
     },
-    onPageChange(page) {
-      blog.getBlogsByUserId(this.user.id, { page }).then( response => {
+    onPageChange (page) {
+      blog.getBlogsByUserId(this.user.id, { page }).then(response => {
         this.blogs = response.data
         this.total = response.total
         this.page = response.page
-        this.$router.push({ path: "/my", query: {page}})
+        this.$router.push({ path: "/my", query: { page } })
       })
     }
   }

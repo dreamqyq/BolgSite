@@ -14,7 +14,7 @@
     </template>
     <template v-if=isLogin>
       <h1><router-link to="/">博客小站</router-link></h1>
-      <p>Let's Share !</p>
+      <p class="slogan">Let's Share !</p>
       <div class="btns">
         <router-link to="/create">
           <i class="edit el-icon-plus" :title="message"></i>
@@ -117,6 +117,27 @@ header{
             cursor:pointer;
             margin-right:20px;
           }
+      }
+       @media(max-width:570px){
+        h1{
+          font-size: 20px;
+        }
+        p.slogan{
+          display: none;
+        }
+        .btns{
+          margin-left: 30px;
+          .avatar{
+            margin: 0;
+          }
+          button{
+            
+          }
+          .edit{
+            transform: scale(1.5);
+          }
+        }
+      
       }
   }
 </style>

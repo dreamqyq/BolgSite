@@ -1,10 +1,10 @@
 <template>
   <div id="user">
     <section class="user-info">
-      <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username">
+      <img class="avatar" :src="toUser.avatar" :alt="toUser.username" :title="toUser.username">
       <div class="user-detail">
-        <h3>{{ user.username }}</h3>
-        <p>博客小站 第 {{ user.id }} 号会员</p>
+        <h3>{{ toUser.username }}</h3>
+        <p>博客小站 第 {{ toUser.id }} 号会员</p>
       </div>
     </section>
     <section class="blogs-list">
@@ -37,4 +37,4 @@
 </template>
 
 <script src="./template.js"></script>
-<style lang="less" src="./template.less"></style>
+<style lang="less" src="../My/template.less"></style>

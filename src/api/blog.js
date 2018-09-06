@@ -9,7 +9,7 @@ const URL = {
 }
 
 export default {
-  getBlogsList ({ page = 1, userId, atIndex} = { page: 1 }) {
+  getBlogsList ({ page = 1, userId, atIndex } = { page: 1 }) {
     return request(URL.GET_LIST, 'GET', { page, userId, atIndex })
   },
   getBlogsAtIndex ({ page = 1 } = { page: 1 }) {
@@ -21,7 +21,7 @@ export default {
   getBlogDetail ({ blogId }) {
     return request(URL.GET_DETAIL.replace(':blogId', blogId))
   },
-  createBlog ({ title = '', content = '', description = '', atIndex = false } = { title: '', content: '', description: '', atIndex: false}) {
+  createBlog ({ title = '', content = '', description = '', atIndex = false } = { title: '', content: '', description: '', atIndex: false }) {
     return request(URL.CREATE, 'POST', { title, content, description, atIndex })
   },
   updateBlog ({ blogId }, { title, content, description, atIndex }) {
