@@ -1,7 +1,7 @@
 <template>
   <div id="details">
     <section class="user-info">
-      <router-link :to="`/user/${user.id}`">
+      <router-link :to="`/user/${blogAuth.id}`">
         <img :src="blogAuth.avatar" :alt="blogAuth.username" :title="blogAuth.username" class="avatar">
       </router-link>
       <div class="user-detail">

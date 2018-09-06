@@ -34,7 +34,7 @@ export default {
       this.originContent = response.data.content
       this.createdAt = response.data.createdAt
       this.blogAuth = response.data.user
-      if( this.blogAuth.id === this.user.id ) {
+      if(this.user && this.blogAuth.id === this.user.id ) {
         this.isAuth = true
       }
     })

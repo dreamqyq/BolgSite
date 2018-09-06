@@ -16,8 +16,8 @@ export default {
   },
 
   created () {
-    this.userId = this.$route.params.userId
-    if (this.userId == this.user.id) {
+    this.userId = parseInt(this.$route.params.userId,10)
+    if (this.user &&  this.userId === this.user.id) {
       this.$router.push({ path: '/my' })
     }
     this.page = parseInt(this.$route.query.page) || 1
