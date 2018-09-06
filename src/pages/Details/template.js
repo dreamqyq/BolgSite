@@ -23,7 +23,14 @@ export default {
 
   computed: {
     markdown () {
-      return marked(this.originContent)
+      var renderer = new marked.Renderer()
+      marked.setOptions({
+        renderer: renderer
+      })
+      renderer.link = function (href, title, text) {
+        return '<a target="_blank" href="' + href + '" title="' + href + '">' + text + '</a>'
+      }
+      return marked(this.originContent, { renderer: renderer })
     }
   }
 }
