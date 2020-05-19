@@ -1,7 +1,7 @@
 # BlogSite 博客小站
 
-- 预览地址：https://dreamqyq.github.io/BlogSite-preview/
-- 项目源码：https://github.com/dreamqyq/BolgSite
+- 预览地址：https://dreamqyq.github.io/BlogSite/
+- 项目源码：https://github.com/dreamqyq/BlogSite
 
 # 项目功能
 
