@@ -47,7 +47,7 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    store.dispatch('checkLogin').then(isLogin=>{
+    store.dispatch('checkLogin').then(isLogin => {
       if (!store.getters.isLogin) {
         next({
           path: '/login',
@@ -58,7 +58,7 @@ router.beforeEach((to, from, next) => {
       }
     })
   } else {
-    next() 
+    next()
   }
 })
 

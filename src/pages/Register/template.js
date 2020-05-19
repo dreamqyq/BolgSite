@@ -14,21 +14,21 @@ export default {
 
   methods: {
     ...mapActions(['register']),
-    onRegister(){
-      if(this.password.length >=6 && this.password.length <=16) {
+    onRegister () {
+      if (this.password.length >= 6 && this.password.length <= 16) {
         this.error2 = ''
-        if(this.repassword === this.password) {
+        if (this.repassword === this.password) {
           this.error3 = ''
           this.register({ username: this.username, password: this.password })
-            .then(()=>{
+            .then(() => {
               this.$router.push({path: '/'})
-            },(response)=>{
+            }, (response) => {
               this.error1 = response.msg
             })
-        }else {
+        } else {
           this.error3 = '两次密码不匹配'
         }
-      }else {
+      } else {
         this.error2 = '密码长度6到16个字符'
       }
     }

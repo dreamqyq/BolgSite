@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     onEdit () {
-      blog.updateBlog({ blogId: this.blogId }, { title:this.title, description: this.description, content: this.content, atIndex: this.atIndex })
+      blog.updateBlog({ blogId: this.blogId }, { title: this.title, description: this.description, content: this.content, atIndex: this.atIndex })
         .then(response => {
           this.$message.success(response.msg)
           this.$router.push({ path: `/details/${response.data.id}` })

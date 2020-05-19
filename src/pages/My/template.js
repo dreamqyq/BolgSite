@@ -2,11 +2,11 @@ import blog from '@/api/blog'
 import { mapGetters } from 'vuex'
 
 export default {
-  data() {
+  data () {
     return {
       blogs: [],
       page: 1,
-      total: 0,
+      total: 0
     }
   },
 
@@ -14,7 +14,7 @@ export default {
     ...mapGetters(['user'])
   },
 
-  created() {
+  created () {
     this.page = parseInt(this.$route.query.page) || 1
     blog.getBlogsByUserId(this.user.id, { page: this.page })
       .then(response => {
@@ -48,7 +48,7 @@ export default {
         this.blogs = response.data
         this.total = response.total
         this.page = response.page
-        this.$router.push({ path: "/my", query: { page } })
+        this.$router.push({ path: '/my', query: { page } })
       })
     }
   }

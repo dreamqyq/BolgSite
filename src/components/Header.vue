@@ -20,7 +20,7 @@
           <i class="edit el-icon-plus" :title="message"></i>
         </router-link>
         <router-link to="/my">
-          <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username"> 
+          <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username">
         </router-link>
         <el-button round @click="onLogout">退出登录</el-button>
       </div>
@@ -30,36 +30,34 @@
 
 <script>
 
-  import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
-  import auth from '@/api/auth'
+export default {
+  data () {
+    return {
+      message: '创建博客'
+    }
+  },
+  computed: {
+    ...mapGetters([
+      'isLogin',
+      'user'
+    ])
+  },
+  created () {
+    this.checkLogin()
+  },
+  methods: {
+    ...mapActions([
+      'checkLogin',
+      'logout'
+    ]),
 
-  export default {
-    data(){
-      return {
-        message: '创建博客'
-      }
-    },
-    computed: {
-      ...mapGetters([
-        'isLogin',
-        'user'
-      ])
-    },
-    created() {
-      this.checkLogin() 
-    },
-    methods: {
-      ...mapActions([
-        'checkLogin',
-        'logout'
-      ]),
-
-      onLogout() {
-        this.logout()
-      },
+    onLogout () {
+      this.logout()
     }
   }
+}
 </script>
 
 <style lang="less">
@@ -131,13 +129,13 @@ header{
             margin: 0;
           }
           button{
-            
+
           }
           .edit{
             transform: scale(1.5);
           }
         }
-      
+
       }
   }
 </style>

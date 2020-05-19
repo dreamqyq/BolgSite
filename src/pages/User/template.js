@@ -2,12 +2,12 @@ import blog from '@/api/blog'
 import { mapGetters } from 'vuex'
 
 export default {
-  data() {
+  data () {
     return {
       blogs: [],
       toUser: {},
       page: 1,
-      total: 0,
+      total: 0
     }
   },
 
@@ -16,8 +16,8 @@ export default {
   },
 
   created () {
-    this.userId = parseInt(this.$route.params.userId,10)
-    if (this.user &&  this.userId === this.user.id) {
+    this.userId = parseInt(this.$route.params.userId, 10)
+    if (this.user && this.userId === this.user.id) {
       this.$router.push({ path: '/my' })
     }
     this.page = parseInt(this.$route.query.page) || 1
@@ -41,8 +41,8 @@ export default {
         year: dateObj.getFullYear()
       }
     },
-    onPageChange(page) {
-      blog.getBlogsByUserId(this.userId, { page }).then( response => {
+    onPageChange (page) {
+      blog.getBlogsByUserId(this.userId, { page }).then(response => {
         this.blogs = response.data
         this.total = response.total
         this.page = response.page
